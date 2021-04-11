@@ -1,0 +1,45 @@
+How does web works?
+
+Client (web browser) - Server
+
+1. We put URL(universal resource locator)/URI into client to connect to the server.
+	In addition to URI we also specify HTTP verb such as GET/POST etc. 
+	(looks like: HTTP: URI VERB)
+
+HTTP: hyper text transfer protocol.
+	Protocol: set of rules how to communicate. 
+	Transfered: request was transfered by the client and server accepts it.
+	After some work server gives response to the client (web browser in this case) to generate a new web page.
+	In that response above the BODY of the response is HTML. HT are first two letters.
+
+So, when we clcik on a new link there will be new GET request generated and all the stuff from
+above will be repeated.
+
+2. Request methods verbs: GET, POST, PUT, PATCH DELETE
+
+3. Query strings like '?' are used for passing additional info about the request.
+	Another way to do it is through specific key-value pairs: headers.
+
+	Both request and response have headers and they're used for further communication what is wanted and what was sent back. One of the response types is status code: 200-ish, 300-ish,
+	400-ish, 500. It tells the client what has happended on the server side.
+
+4. RESTful API constraint: a) client-server architecture, b)statelessness: described in 5-th point, 
+						   c) layered system,
+						   d) cacheability: use standard HTTP caching mechanism, 
+						   e) uniform design: Resource identification in requests, Resource manipulation through representations, Self-Descriptive messages, Hypermedia as the engine of application state,
+						   f) code on demand
+
+5. Implementing library to connect to the server will definitely use HTTP protocol. This protocol will be 'stateless' (server won't remember anything about the client) => if we want
+to keep some kind of state => we're to send all the required data (like login one) with every request via headers.
+In that request we're asking for 'RESOURCE' (U 'R' L).
+
+6. In most cases what we want our application to do with the resources can be desribed as CRUD:
+	Create, Read, Update, Delete
+
+Example: program sends a GET request to URI -> server responds with data with all that HTTP headers (BODY of the response generally is JSON)
+
+HTTP VERBS | CRUD
+	GET       READ
+	POST      CREATE
+PUT, PATCH    UPDATE
+	DELETE    DELETE
